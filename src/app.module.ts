@@ -16,6 +16,7 @@ import { TestMiddleware } from './test.middleware';
 import { PrismaModule } from './prisma/prisma.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { TestModule } from './test/test.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { APP_GUARD } from '@nestjs/core';
         limit: 10, // จำนวนครั้งที่อนุญาตในระยะเวลา ในกรณีนี้คือ 10 ครั้ง
       },
     ]),
+    TestModule,
   ],
   controllers: [AppController],
   providers: [
