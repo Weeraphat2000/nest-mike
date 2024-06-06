@@ -23,7 +23,8 @@ export class ProductsController {
     return this.productsService.getAllProducts();
   }
   @Get('/test')
-  test(@Query() role?: string) {
+  test(@Query() role?: { a: string; b: string }) {
+    console.log(role.a, 'role a');
     console.log(role, 'role');
     return role;
   }
@@ -35,6 +36,7 @@ export class ProductsController {
   }
   @Get('/array/:array')
   array(@Param('array', ParseArrayPipe) array: []) {
+    // /products/array/1,2,3,4,5
     console.log(array, 'array'); // ParseArrayPipe จะทำให้เป็น array เลย
     return array;
   }
