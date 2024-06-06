@@ -13,6 +13,12 @@ export class TestService {
   findAll(amount?: number) {
     return this.prismaService.user.findMany({
       include: { Order: { where: { amount } } },
+      // include: { Order: { where: { amount: { lte: amount } } } },
+      // lte คือ less than or equal
+      // lt คือ less than
+      // gte คือ greater than or equal
+      // gt คือ greater than
+      // include: { Order: { where: { amount: { lt: amount } } } },
       take: 5,
     });
   }
