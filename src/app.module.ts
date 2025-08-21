@@ -17,6 +17,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { TestModule } from './test/test.module';
+import { PrometheusModule } from './prometheus/prometheus.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { TestModule } from './test/test.module';
       },
     ]),
     TestModule,
+    PrometheusModule,
   ],
   controllers: [AppController],
   providers: [
